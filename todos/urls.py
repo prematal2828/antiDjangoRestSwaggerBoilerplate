@@ -1,0 +1,12 @@
+"""
+URL patterns for the todos app.
+"""
+
+from django.urls import path
+
+from .views import TodoDetailView, TodoListCreateView
+
+urlpatterns = [
+    path("", TodoListCreateView.as_view(), name="todo-list-create"),
+    path("<int:pk>/", TodoDetailView.as_view(), name="todo-detail"),
+]
